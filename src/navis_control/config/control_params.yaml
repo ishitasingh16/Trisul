@@ -1,0 +1,11 @@
+pid_controller_node:
+  ros__parameters:
+    kp_linear: 0.8
+    ki_linear: 0.0
+    kd_linear: 0.05
+    kp_angular: 2.0
+    ki_angular: 0.0
+    kd_angular: 0.1
+    max_linear_vel: 0.5
+    max_angular_vel: 1.0
+    lookahead_dist: 0.4

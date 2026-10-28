@@ -4,7 +4,7 @@ project(navis_description)
 find_package(ament_cmake REQUIRED)
 
 install(
-  DIRECTORY launch urdf worlds protos
+  DIRECTORY launch urdf worlds protos controllers
   DESTINATION share/${PROJECT_NAME}
 )
 

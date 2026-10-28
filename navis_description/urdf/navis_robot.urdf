@@ -53,4 +53,39 @@
     <child link="imu_link"/>
     <origin xyz="0 0 0.16" rpy="0 0 0"/>
   </joint>
+
+  <webots>
+    <plugin type="webots_ros2_driver::Ros2DiffDrive">
+      <left_wheel>left_wheel_motor</left_wheel>
+      <right_wheel>right_wheel_motor</right_wheel>
+      <wheel_separation>0.38</wheel_separation>
+      <wheel_radius>0.09</wheel_radius>
+      <max_velocity>0.35</max_velocity>
+      <odom_topic>/odom</odom_topic>
+      <odom_frame>odom</odom_frame>
+      <base_frame>base_link</base_frame>
+      <cmd_vel_topic>/cmd_vel</cmd_vel_topic>
+    </plugin>
+    <device reference="camera" type="camera">
+      <ros>
+        <topicName>/camera/image_raw</topicName>
+        <frameName>camera_link</frameName>
+        <enabled>true</enabled>
+      </ros>
+    </device>
+    <device reference="lidar" type="lidar">
+      <ros>
+        <topicName>/scan</topicName>
+        <frameName>lidar_link</frameName>
+        <enabled>true</enabled>
+      </ros>
+    </device>
+    <device reference="imu" type="inertial_unit">
+      <ros>
+        <topicName>/imu</topicName>
+        <frameName>imu_link</frameName>
+        <enabled>true</enabled>
+      </ros>
+    </device>
+  </webots>
 </robot>

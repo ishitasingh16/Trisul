@@ -8,4 +8,6 @@ install(
   DESTINATION share/${PROJECT_NAME}
 )
 
+install(FILES SENSOR_CONTRACT.md DESTINATION share/${PROJECT_NAME})
+
 ament_package()

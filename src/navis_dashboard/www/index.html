@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NAVIS — Autonomous Warehouse Control Dashboard</title>
+  <link rel="stylesheet" href="css/dashboard.css">
+  <script src="https://cdn.jsdelivr.net/npm/roslib@1/build/roslib.min.js"></script>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <span class="brand-title">NAVIS</span>
+      <span class="badge">MISSION CONTROL</span>
+    </div>
+    <div class="connection-status">
+      <span class="status-dot" id="statusDot"></span>
+      <span id="connectionText">Connecting to ROSBridge...</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel">
+      <div class="panel-header">
+        <span class="panel-title">Mission Telemetry</span>
+      </div>
+      <div class="panel-body">
+        <div class="metric-card">
+          <div class="metric-label">Mission State</div>
+          <div class="metric-val" id="metricState" style="color: var(--navis-accent-success);">IDLE</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Elapsed Time</div>
+          <div class="metric-val" id="metricTime">00:00:00</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Distance Traveled</div>
+          <div class="metric-val" id="metricDistance">0.00 m</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Inference Latency</div>
+          <div class="metric-val" id="metricLatency" style="color: var(--navis-accent-secondary);">0.0 ms</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Collisions</div>
+          <div class="metric-val" id="metricCollisions" style="color: var(--navis-accent-danger);">0</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="center-area">
+      <div class="panel">
+        <div class="panel-header">
+          <span class="panel-title">Warehouse Map & Navigation</span>
+          <button class="btn" id="clearGoalBtn">Reset View</button>
+        </div>
+        <div class="panel-body" style="padding: 0;">
+          <div class="map-container">
+            <canvas id="mapCanvas"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <div class="feed-row">
+        <div class="panel">
+          <div class="panel-header">
+            <span class="panel-title">Perception Stream</span>
+          </div>
+          <div class="feed-box">
+            <img id="cameraFeed" alt="Camera Feed" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100'><text x='10' y='50' fill='%2364748b'>No Feed</text></svg>">
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-header">
+            <span class="panel-title">LiDAR 360° Radar</span>
+          </div>
+          <div class="feed-box">
+            <canvas id="radarCanvas"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <span class="panel-title">Tracked Objects (World Model)</span>
+      </div>
+      <div class="panel-body">
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Class</th>
+                <th>Pos (X, Y)</th>
+                <th>Type</th>
+              </tr>
+            </thead>
+            <tbody id="objectsTableBody">
+              <tr>
+                <td colspan="4" style="text-align: center; color: var(--navis-text-muted);">No objects tracked</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

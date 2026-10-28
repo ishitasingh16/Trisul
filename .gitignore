@@ -1,0 +1,58 @@
+# ==============================================================================
+# AI Agents & IDE Folders — DO NOT PUSH TO REPOSITORY
+# AI agents folders, agent tasks, configurations, local brain memory,
+# and system logs must remain strictly local and must NEVER be pushed to git.
+# ==============================================================================
+.agents/
+.gemini/
+.system_generated/
+*.brain/
+.agents_cache/
+
+# ROS 2 Build, Install & Log Artifacts
+build/
+install/
+log/
+log_dir/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+env/
+venv/
+ENV/
+*.egg-info/
+dist/
+eggs/
+.eggs/
+
+# C / C++ Compilation & Binaries
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.so.*
+*.dylib
+*.dll
+*.exe
+compile_commands.json
+
+# IDE & Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.bak
+
+# OS Generated Files
+.DS_Store
+Thumbs.db
+desktop.ini

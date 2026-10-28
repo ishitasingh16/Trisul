@@ -1,0 +1,9 @@
+yolo_detector_node:
+  ros__parameters:
+    model_path: "yolov8n.pt"
+    confidence_threshold: 0.5
+    device: "cpu"
+    input_size: 640
+    image_topic: "/camera/image_raw"
+    detections_topic: "/detections"
+    annotated_image_topic: "/detections/image"

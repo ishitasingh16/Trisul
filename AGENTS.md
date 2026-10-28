@@ -17,8 +17,9 @@ Then strictly follow the department boundaries defined in `.agents/rules/ai-core
 2. **Do NOT modify files outside the active Head's assigned packages** without explicit human permission.
 3. **Do NOT change ROS 2 message definitions, topic names, or TF frame names** without confirming that all three Heads agree.
 4. **Follow the UI design system** in `.agents/rules/ui-design-rules.md` for all visual/frontend work.
-5. **Preserve all existing comments and documentation** unless directly asked to modify them.
-6. **When in doubt, ask.** Do not guess intent, architecture decisions, or cross-department changes.
+5. **No AI comments in code:** Do NOT add comments, docstrings, or inline explanations into code files. Keep code clean and self-explanatory. Preserve existing comments and documentation unless directly asked to modify them.
+6. **Maximum performance & zero-copy:** Write code to be as fast as possible. Avoid unnecessary data copies (e.g. use references, `const &`, move semantics, zero-copy message loans, views), and utilize the best architectural approach (OOP, modular design, RAII) suited for speed and maintainability.
+7. **When in doubt, ask.** Do not guess intent, architecture decisions, or cross-department changes.
 
 ## Read These Before Working
 

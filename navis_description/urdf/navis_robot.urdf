@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<robot name="navis_robot">
+  <!-- ROS TF and Webots device contract for the Phase 2 differential-drive robot. -->
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0 0 0"/>
+      <mass value="4.0"/>
+      <inertia ixx="0.08" ixy="0" ixz="0" iyy="0.08" iyz="0" izz="0.12"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry><box size="0.42 0.34 0.16"/></geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry><box size="0.42 0.34 0.16"/></geometry>
+    </collision>
+  </link>
+
+  <link name="left_wheel_link"/>
+  <joint name="left_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="left_wheel_link"/>
+    <origin xyz="0 0.19 0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <link name="right_wheel_link"/>
+  <joint name="right_wheel_joint" type="continuous">
+    <parent link="base_link"/>
+    <child link="right_wheel_link"/>
+    <origin xyz="0 -0.19 0"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <link name="camera_link"/>
+  <joint name="base_to_camera" type="fixed">
+    <parent link="base_link"/>
+    <child link="camera_link"/>
+    <origin xyz="0.21 0 0.09" rpy="0 0 0"/>
+  </joint>
+
+  <link name="lidar_link"/>
+  <joint name="base_to_lidar" type="fixed">
+    <parent link="base_link"/>
+    <child link="lidar_link"/>
+    <origin xyz="0 0 0.17" rpy="0 0 0"/>
+  </joint>
+
+  <link name="imu_link"/>
+  <joint name="base_to_imu" type="fixed">
+    <parent link="base_link"/>
+    <child link="imu_link"/>
+    <origin xyz="0 0 0.16" rpy="0 0 0"/>
+  </joint>
+</robot>

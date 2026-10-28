@@ -1,0 +1,11 @@
+path: dataset
+train: images/train
+val: images/val
+test: images/test
+
+names:
+  0: box
+  1: cone
+  2: person
+  3: shelf
+  4: pallet

@@ -1,0 +1,5 @@
+string state
+float32 elapsed_time
+float32 distance_traveled
+uint32 objects_detected
+uint32 collision_count
